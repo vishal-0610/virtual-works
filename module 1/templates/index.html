@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f4ed">
+  <title>Clearform | Data Cleaning &amp; Validation</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#home" aria-label="Clearform home">
+        <span class="brand-mark">C</span>
+        <span><strong>clearform</strong><small>DATA WORKBENCH</small></span>
+      </a>
+      <div class="project-chip"><span class="live-dot"></span> INTERNSHIP PROJECT <b>TASK 1</b></div>
+      <nav class="side-nav" aria-label="Project sections">
+        <a class="nav-link active" href="#home"><span class="nav-icon">⌂</span>Overview</a>
+        <a class="nav-link" href="#upload"><span class="nav-icon">↑</span>Upload dataset</a>
+        <a class="nav-link" href="#analysis"><span class="nav-icon">⌕</span>Quality analysis</a>
+        <a class="nav-link" href="#cleaning"><span class="nav-icon">✳</span>Cleaning operations</a>
+        <a class="nav-link" href="#validation"><span class="nav-icon">✓</span>Validation results</a>
+        <a class="nav-link" href="#comparison"><span class="nav-icon">⇄</span>Before / after</a>
+        <a class="nav-link" href="#download"><span class="nav-icon">↓</span>Export dataset</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="integrity-note"><span class="integrity-icon">◉</span><div><strong>Source protected</strong><small>Your raw file stays untouched.</small></div></div>
+        <div class="sidebar-foot">VIRTUAL WORKS <span>·</span> 2026</div>
+      </div>
+    </aside>
+
+    <main class="main-area" id="home">
+      <header class="topbar">
+        <div class="crumb">WORKSPACE <span>/</span> <b>DATA QUALITY</b></div>
+        <div class="topbar-right"><span class="privacy-label"><i></i> LOCAL SESSION</span><span class="avatar">VW</span></div>
+      </header>
+
+      <div class="content-wrap">
+        <section class="welcome-row">
+          <div>
+            <p class="eyebrow">VIRTUAL WORKS INTERNSHIP <span>·</span> TASK 1</p>
+            <h1>Data cleaning <em>&amp;</em><br>structural validation</h1>
+            <p class="intro">Turn messy files into dependable data. Inspect, clean, validate, and export in one place.</p>
+          </div>
+          <div class="quality-stamp"><span class="stamp-label">CURRENT QUALITY</span><strong id="hero-score">--<small>/100</small></strong><span class="stamp-foot">Awaiting dataset</span></div>
+        </section>
+
+        <section class="upload-strip" id="upload">
+          <div class="upload-copy"><div class="upload-icon">↥</div><div><h2>Bring in your dataset</h2><p>CSV files up to 16 MB · your original remains unchanged</p></div></div>
+          <div class="upload-actions">
+            <label class="button button-primary" for="file-input"><span>＋</span> Choose CSV</label>
+            <input id="file-input" type="file" accept=".csv,text/csv" hidden>
+            <span class="or-label">OR</span>
+            <button class="button button-secondary" id="sample-button" type="button">Load sample dataset <span>↗</span></button>
+          </div>
+          <div id="upload-status" class="upload-status" role="status">No dataset loaded</div>
+        </section>
+
+        <section class="section-block" id="analysis">
+          <div class="section-heading"><div><p class="eyebrow">01 / INSPECT</p><h2>Data quality snapshot</h2></div><span class="section-meta" id="dataset-label">NO DATASET</span></div>
+          <div class="metric-grid">
+            <article class="metric-card metric-ink"><div class="metric-top"><span>Total records</span><span class="metric-symbol">▤</span></div><strong id="metric-rows">—</strong><small>rows in source file</small><div class="metric-accent"></div></article>
+            <article class="metric-card"><div class="metric-top"><span>Total columns</span><span class="metric-symbol">▥</span></div><strong id="metric-columns">—</strong><small>fields detected</small></article>
+            <article class="metric-card metric-coral"><div class="metric-top"><span>Missing values</span><span class="metric-symbol">◌</span></div><strong id="metric-missing">—</strong><small>blank or null cells</small></article>
+            <article class="metric-card"><div class="metric-top"><span>Duplicate records</span><span class="metric-symbol">⧉</span></div><strong id="metric-duplicates">—</strong><small>extra row copies</small></article>
+            <article class="metric-card"><div class="metric-top"><span>Invalid records</span><span class="metric-symbol">!</span></div><strong id="metric-invalid">—</strong><small>rows with quality issues</small></article>
+          </div>
+          <div class="analysis-grid">
+            <article class="panel issue-panel">
+              <div class="panel-heading"><div><span class="panel-kicker">AUTOMATIC SCAN</span><h3>Detected issues</h3></div><span class="scan-state" id="scan-state">Waiting</span></div>
+              <div id="issue-list" class="issue-list"><div class="empty-state">Load a dataset to see its quality profile.</div></div>
+            </article>
+            <article class="panel chart-panel">
+              <div class="panel-heading"><div><span class="panel-kicker">QUALITY PROFILE</span><h3>Issues by category</h3></div></div>
+              <div id="issue-chart" class="issue-chart"><div class="empty-state">Chart appears after analysis.</div></div>
+              <div class="chart-legend"><span><i class="legend-raw"></i> Raw data</span><span><i class="legend-clean"></i> Cleaned data</span></div>
+            </article>
+          </div>
+          <article class="panel table-panel">
+            <div class="panel-heading table-heading"><div><span class="panel-kicker">RAW SOURCE · READ ONLY</span><h3>Dataset preview</h3></div><span class="table-count" id="raw-table-count">0 records</span></div>
+            <div class="table-wrap" id="raw-table"><div class="empty-state">Your first rows will appear here.</div></div>
+          </article>
+        </section>
+
+        <section class="section-block cleaning-section" id="cleaning">
+          <div class="section-heading"><div><p class="eyebrow">02 / TRANSFORM</p><h2>Choose cleaning operations</h2></div><span class="section-meta">APPLIED TO A COPY</span></div>
+          <div class="cleaning-layout">
+            <div class="panel operations-panel">
+              <div class="panel-heading"><div><span class="panel-kicker">TRANSFORMATIONS</span><h3>Operations to apply</h3></div></div>
+              <div class="operation-list">
+                <label class="operation-row"><input type="checkbox" name="operation" value="removeDuplicates" checked><span class="checkmark"></span><span class="operation-text"><b>Remove duplicate rows</b><small>Keep the first occurrence of each row</small></span><span class="op-count" id="op-duplicates">—</span></label>
+                <label class="operation-row"><input type="checkbox" name="operation" value="removeEmptyRows" checked><span class="checkmark"></span><span class="operation-text"><b>Remove completely empty rows</b><small>Only rows with no populated fields</small></span><span class="op-count" id="op-empty">—</span></label>
+                <label class="operation-row"><input type="checkbox" name="operation" value="trimSpaces" checked><span class="checkmark"></span><span class="operation-text"><b>Trim extra spaces</b><small>Remove surrounding whitespace</small></span><span class="op-count" id="op-spaces">—</span></label>
+                <label class="operation-row"><input type="checkbox" name="operation" value="standardizeCapitalization"><span class="checkmark"></span><span class="operation-text"><b>Standardize capitalization</b><small>Normalize text to title case, excluding IDs and email</small></span><span class="op-count" id="op-caps">—</span></label>
+                <label class="operation-row"><input type="checkbox" name="operation" value="convertTypes" checked><span class="checkmark"></span><span class="operation-text"><b>Convert types &amp; standardize dates</b><small>Parse recognized numeric and date fields</small></span><span class="op-count" id="op-types">AUTO</span></label>
+                <label class="operation-row"><input type="checkbox" name="operation" value="handleInvalid"><span class="checkmark"></span><span class="operation-text"><b>Handle invalid numerical values</b><small>Convert unparseable numbers to missing values</small></span><span class="op-count" id="op-invalid">—</span></label>
+              </div>
+              <div class="missing-controls"><label for="missing-strategy">MISSING VALUE STRATEGY</label><select id="missing-strategy"><option value="leave">Leave as-is</option><option value="drop_rows">Remove rows with missing values</option><option value="mean">Replace numeric values with mean</option><option value="median">Replace numeric values with median</option><option value="mode">Replace text values with mode</option><option value="custom">Replace with custom value</option></select><input id="custom-value" type="text" placeholder="Enter replacement value" hidden></div>
+              <button class="button button-dark apply-button" id="clean-button" type="button" disabled><span>✳</span> Apply cleaning operations <b>→</b></button>
+            </div>
+            <aside class="integrity-panel"><div class="integrity-art">◎</div><p class="panel-kicker">INTEGRITY GUARANTEE</p><h3>Raw stays raw.</h3><p>Every transformation runs against a separate copy. Your source data remains available for review and comparison.</p><div class="integrity-rule"></div><div class="integrity-stat"><span>Source file</span><b>Read only</b></div><div class="integrity-stat"><span>Cleaning log</span><b>Recorded</b></div></aside>
+          </div>
+          <div class="operation-log panel" id="operation-log" hidden><div class="panel-heading"><div><span class="panel-kicker">CLEANING LOG</span><h3>Operations performed</h3></div></div><ul id="log-list"></ul></div>
+        </section>
+
+        <section class="section-block validation-section" id="validation">
+          <div class="section-heading"><div><p class="eyebrow">03 / VERIFY</p><h2>Structural validation</h2></div><span class="section-meta">CONFIGURE RULES</span></div>
+          <div class="validation-layout">
+            <article class="panel validation-config"><div class="panel-heading"><div><span class="panel-kicker">VALIDATION RULES</span><h3>Define your expectations</h3></div></div>
+              <label class="field-label" for="required-fields">Required fields <small>Choose columns that must be populated</small></label><select id="required-fields" multiple size="4" aria-label="Required fields"></select>
+              <div class="config-row"><label class="field-label" for="id-column">Unique ID field</label><select id="id-column"><option value="">Auto-detect if possible</option></select></div>
+              <div class="config-row"><label class="field-label" for="range-column">Numeric range check</label><select id="range-column"><option value="">No range check</option></select></div>
+              <div class="range-inputs"><input id="range-min" type="number" placeholder="Minimum" aria-label="Minimum allowed value"><span>to</span><input id="range-max" type="number" placeholder="Maximum" aria-label="Maximum allowed value"></div>
+              <button class="button button-outline" id="validate-button" type="button" disabled>Run validation <span>→</span></button>
+            </article>
+            <article class="panel validation-results"><div class="panel-heading"><div><span class="panel-kicker">RESULTS</span><h3>Validation checks</h3></div><span id="validation-summary" class="validation-summary">Not run</span></div><div id="validation-list" class="validation-list"><div class="empty-state">Choose rules and run validation to see results.</div></div></article>
+          </div>
+        </section>
+
+        <section class="section-block comparison-section" id="comparison">
+          <div class="section-heading"><div><p class="eyebrow">04 / COMPARE</p><h2>Before &amp; after</h2></div><span class="section-meta" id="comparison-state">AWAITING CLEANING</span></div>
+          <div class="comparison-layout">
+            <article class="panel comparison-panel"><div class="comparison-head"><div><span class="panel-kicker">RAW DATA</span><strong id="compare-original-rows">—</strong><small>records</small></div><span class="compare-arrow">→</span><div class="compare-clean"><span class="panel-kicker">CLEANED DATA</span><strong id="compare-cleaned-rows">—</strong><small>records</small></div></div><div class="compare-bars" id="comparison-bars"><div class="empty-state">Apply cleaning to compare the datasets.</div></div></article>
+            <article class="panel comparison-metrics"><div class="panel-heading"><div><span class="panel-kicker">CHANGE SUMMARY</span><h3>What changed</h3></div></div><div class="change-list"><div><span>Duplicates removed</span><b id="change-duplicates">—</b></div><div><span>Missing values detected</span><b id="change-missing">—</b></div><div><span>Missing values handled</span><b id="change-handled">—</b></div><div><span>Invalid records detected</span><b id="change-invalid">—</b></div><div><span>Formatting corrections</span><b id="change-formatting">—</b></div></div></article>
+          </div>
+          <article class="panel table-panel cleaned-table-panel"><div class="panel-heading table-heading"><div><span class="panel-kicker">CLEANED COPY</span><h3>Cleaned dataset preview</h3></div><span class="table-count" id="clean-table-count">Not generated</span></div><div class="table-wrap" id="clean-table"><div class="empty-state">The cleaned preview will appear here after applying operations.</div></div></article>
+        </section>
+
+        <section class="download-band" id="download"><div><p class="eyebrow">05 / EXPORT</p><h2>Your clean data, ready to go.</h2><p>Download the transformed copy as a CSV. The raw upload is never overwritten.</p></div><button class="button button-download" id="download-button" type="button" disabled><span>↓</span> Download Cleaned Dataset</button><span class="download-seal">CSV<br><small>UTF-8</small></span></section>
+        <footer class="page-footer"><span>DATA CLEANING &amp; STRUCTURAL VALIDATION</span><span>PROJECT <b>TASK1</b></span><span>VIRTUAL WORKS INTERNSHIP</span></footer>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+</body>
+</html>

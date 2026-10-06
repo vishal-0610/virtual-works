@@ -1,0 +1,18 @@
+Customer ID,Full Name,Age,Signup Date,City,Annual Income,Email
+C-1001,  maya sharma ,24,2024-01-15,New York,54000,maya@example.com
+C-1002,,31,01/22/2024, los angeles ,62000,ARJUN@example.com
+C-1003,ARJUN MEHTA,unknown,Feb 03 2024,Chicago,not available,arjun@example.com
+C-1004,Sofia Chen,29,2024/02/17,New York,71000,sofia@example.com
+C-1004,Sofia Chen,29,2024/02/17,New York,71000,sofia@example.com
+C-1005,Noah Williams,,2024-03-02,Seattle,68000,noah@example.com
+C-1006,  AVA PATEL  ,27,31-02-2024,Austin,59000,ava@example.com
+,,,,,,
+C-1008,Ethan Brown,34,2024-03-18, miami ,72000,ethan@example.com
+C-1009,Olivia Davis,twenty,2024-04-01,Boston,81000,olivia@example.com
+C-1010,Liam Garcia,41,2024-04-12,Chicago,95000,liam@example.com
+C-1011,Emma Wilson,26,not-a-date,Portland,64000,emma@example.com
+C-1012,Lucas Martin,38,2024-05-04,New York,88000,lucas@example.com
+C-1013,Isabella Lee,22,2024-05-15,Austin,,isabella@example.com
+C-1014,James Turner,30,2024-06-01,Seattle,76000,james@example.com
+C-1015,Amelia Clark,28,2024-06-11,Miami,69000,amelia@example.com
+C-1016,Henry Lewis,33,2024-06-28,Chicago,83000,henry@example.com
